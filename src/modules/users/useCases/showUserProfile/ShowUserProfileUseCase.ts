@@ -1,21 +1,21 @@
-import { User } from "../../model/User";
-import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { User } from '../../model/User';
+import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
-  user_id: string;
+	userId: string;
 }
 
 class ShowUserProfileUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+	constructor(private usersRepository: IUsersRepository) {}
 
-  execute({ user_id }: IRequest): User {
-    const user = this.usersRepository.findById(user_id);
-    if (!user) {
-      throw new Error("User not found");
-    }
+	execute({ userId }: IRequest): User {
+		const user = this.usersRepository.findById(userId);
+		if (!user) {
+			throw new Error('User not found');
+		}
 
-    return user;
-  }
+		return user;
+	}
 }
 
 export { ShowUserProfileUseCase };

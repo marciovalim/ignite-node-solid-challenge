@@ -1,9 +1,11 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import { usersRoutes } from "./users.routes";
+import { apiDocsRouter } from './api-docs.routes';
+import { usersRoutes } from './users.routes';
 
 const appRouter = Router();
 
-appRouter.use("/users", usersRoutes);
+appRouter.use('/api-docs', apiDocsRouter);
+appRouter.use('/users', usersRoutes);
 
 export { appRouter };
